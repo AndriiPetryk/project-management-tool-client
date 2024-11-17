@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Home, LockIcon } from "lucide-react";
+import { LockIcon } from "lucide-react";
+import Home from "@/app/page";
 import { usePathname } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "@/app/redux";
+import { useAppDispatch } from "@/app/redux";
 import Link from "next/link";
 
 const Sidebar = () => {
@@ -12,8 +13,7 @@ const Sidebar = () => {
   const [showPriority, setShowPriority] = useState(true);
 
   const sideClassName = `fixed flex flex-col h-[100%] shadow-xl transition-all 
-    duration-300 h-full z-40 dark:bg-black overflow-y-auto bg-white w-64
-  `
+    duration-300 h-full z-40 dark:bg-black overflow-y-auto bg-white w-64`
 
   return <div className={sideClassName}>
     <div className="z-50 flex min-h-[56px] w-64 items-center justify-between bg-white px-6 pt-6 dark:bg-black">
@@ -58,6 +58,7 @@ const SidebarLink = ({
   const screenWidth = window.innerWidth;
 
   const dispatch = useAppDispatch();
+  // @ts-ignore
   const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
 
   return (
