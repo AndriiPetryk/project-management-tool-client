@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Home, LockIcon } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "@/app/redux";
-import Link from "next/link";
+import { LockIcon } from "lucide-react";
 
 const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
