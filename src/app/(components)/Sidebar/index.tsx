@@ -2,24 +2,34 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { LockIcon } from "lucide-react";
+import { LockIcon, X } from "lucide-react";
 import Home from "@/app/page";
 import { usePathname } from "next/navigation";
 import { useAppDispatch } from "@/app/redux";
 import Link from "next/link";
+import { setIsSidebarCollapsed } from "@/app/state";
 
 const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
   const [showPriority, setShowPriority] = useState(true);
 
+  const dispatch = useAppDispatch();
+  // @ts-ignore
+  const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
+
   const sideClassName = `fixed flex flex-col h-[100%] shadow-xl transition-all 
-    duration-300 h-full z-40 dark:bg-black overflow-y-auto bg-white w-64`
+    duration-300 h-full z-40 dark:bg-black overflow-y-auto bg-white ${isSidebarCollapsed ? "w-0 hidden" : "w-64"}`
 
   return <div className={sideClassName}>
     <div className="z-50 flex min-h-[56px] w-64 items-center justify-between bg-white px-6 pt-6 dark:bg-black">
       <div className="text-xl font-bold text-gray-800 dark:text-white">
         PMTL
       </div>
+      {isSidebarCollapsed ? null : (
+        <button className="py-3" onClick={()=>{dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))}}>
+          <X className="h-6 w-6 text-gray-800 hover:text-gray-500 dark:text-white"/>
+        </button>
+      )}
     </div>
     <div className="flex fitems-center gap-5 border-y-[1.5px] border-gray-200 px-8 py-4 dark:border-gray-700">
       <Image src="/logo.png" alt="Logo" width={40} height={40} />
