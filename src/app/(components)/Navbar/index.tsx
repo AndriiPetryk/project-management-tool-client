@@ -5,7 +5,9 @@ import { setIsDarkMode, setIsSidebarCollapsed } from "@/app/state";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
+  // @ts-ignore
   const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
+  // @ts-ignore
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   return (

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { LockIcon, X } from "lucide-react";
 import Home from "@/app/page";
 import { usePathname } from "next/navigation";
-import { useAppDispatch } from "@/app/redux";
+import { useAppDispatch, useAppSelector } from "@/app/redux";
 import Link from "next/link";
 import { setIsSidebarCollapsed } from "@/app/state";
 
@@ -14,7 +14,6 @@ const Sidebar = () => {
   const [showPriority, setShowPriority] = useState(true);
 
   const dispatch = useAppDispatch();
-  // @ts-ignore
   const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
 
   const sideClassName = `fixed flex flex-col h-[100%] shadow-xl transition-all 
@@ -76,7 +75,7 @@ const SidebarLink = ({
     <div className={`
     relative flex cursor-pointer items-center gap-3 transition-colors
     hover:bg-gray-100 dark:hover:bg-gray-700 dark:bg-black
-    ${isActive ? "bg-gray-100 text-white dark:bg-gray-600" : ""}
+    ${isActive ? "bg-gray-100 text-white dark:bg-gray-600" : ""} justify-start px-8 py-3
     `}>
       {isActive && <div className="absolute left-0 top-0 h-[100%] w-[5px] bg-blue-200"/>}
       <Icon className="h-6 w-6 text-gray-800 dark:text-gray-100"/>
