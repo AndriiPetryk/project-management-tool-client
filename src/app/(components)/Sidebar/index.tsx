@@ -60,7 +60,6 @@ const SidebarLink = ({
   href,
   icon: Icon,
   label,
-  isCollapsed
 }: SidebarLinkProps) => {
   const pathname = usePathname();
   const isActive = pathname === href || (pathname === "/" && href === "/dashboard");
