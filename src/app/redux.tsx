@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   TypedUseSelectorHook,
@@ -78,9 +78,9 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 /* PROVIDER */
 export default function StoreProvider({
-                                        children,
-                                      }: {
-  children: React.ReactNode;
+    children,
+  }: {
+  children: ReactNode;
 }) {
   const storeRef = useRef<AppStore>();
   if (!storeRef.current) {

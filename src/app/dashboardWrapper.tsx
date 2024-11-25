@@ -6,7 +6,9 @@ import Sidebar from "@/app/(components)/Sidebar";
 import StoreProvider, { useAppSelector } from "@/app/redux";
 
 const DashboardLayout = ({ children }:{children :React.ReactNode}) => {
+  // @ts-ignore
   const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
+  // @ts-ignore
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   useEffect(() => {
