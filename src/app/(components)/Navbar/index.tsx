@@ -13,7 +13,6 @@ const Navbar = () => {
   return (
         <div className="flex justify-between bg-white px-4 py-3 dark:bg-dark dark:px-4 dark:py-3">
           <div className="flex items-center gap-8">
-
             {!isSidebarCollapsed ? null : (
               <button onClick={() => dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))}>
                 <Menu className="h-8 w-8 cursor pointer dark:text-white"/>
